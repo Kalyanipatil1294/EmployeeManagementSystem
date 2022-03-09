@@ -1,0 +1,23 @@
+.header-container {
+    height: 50px;
+    color: white;
+    background: cadetblue;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.spanhere{
+    text-decoration: none;
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+.header-icon {
+    fill: white;
+    margin: 0 12px;
+}

@@ -1,0 +1,76 @@
+#print {
+    margin: 0;
+    font-family: "IPAexGothic", sans-serif;
+}
+.sheet {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    page-break-after: always;
+}
+
+#print.A3               .sheet { width: 297mm; height: 419mm }
+#print.A3.landscape     .sheet { width: 420mm; height: 296mm }
+#print.A4               .sheet { width: 210mm; height: 296mm }
+#print.A4.landscape     .sheet { width: 297mm; height: 209mm }
+#print.A5               .sheet { width: 148mm; height: 209mm }
+#print.A5.landscape     .sheet { width: 210mm; height: 147mm }
+#print.letter           .sheet { width: 216mm; height: 279mm }
+#print.letter.landscape .sheet { width: 280mm; height: 215mm }
+#print.legal            .sheet { width: 216mm; height: 356mm }
+#print.legal.landscape  .sheet { width: 357mm; height: 215mm }
+
+/** Padding area **/
+.sheet.padding-10mm { padding: 10mm }
+.sheet.padding-15mm { padding: 15mm }
+.sheet.padding-20mm { padding: 20mm }
+.sheet.padding-25mm { padding: 25mm }
+
+/** For screen preview **/
+@media screen {
+    .sheet {
+        background: #FFFFFF;
+        /* margin: 5mm auto; */
+        padding: 5mm 0;
+        border: 1px solid;
+    }
+}
+
+@media print {
+    #print.A3.landscape            { width: 420mm }
+    #print.A3, #print.A4.landscape { width: 297mm }
+    #print.A4, #print.A5.landscape { width: 210mm }
+    #print.A5                      { width: 148mm }
+    #print.letter, #print.legal    { width: 216mm }
+    #print.letter.landscape        { width: 280mm }
+    #print.legal.landscape         { width: 357mm }
+}
+.row {
+    margin-bottom: 10px;
+}
+.pay{
+    display: flex;
+    justify-content: space-between;
+}
+.salary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.head {
+    border: 1px solid;
+    font-weight: bold;
+    padding: 11px;
+}
+.salary-breakup {
+    border: 1px solid;
+}
+.salary-footer {
+    margin-top: 100px;
+    text-align: end;
+    font-size: 28px;
+}
+.salary-main {
+    margin-top: 100px;
+}

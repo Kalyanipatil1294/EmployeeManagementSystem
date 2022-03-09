@@ -1,0 +1,77 @@
+.empview {
+
+}
+.edit-container {
+    display: flex;
+    justify-content: end;
+    padding: 0 15px;
+}
+
+.editButton {
+    width: 150px;
+    height: 38px;
+}
+
+.emp-Details {
+    padding: 30px;
+    box-shadow: 5px 5px 8px gray;
+    align-items: center;
+    width: 48%;
+    margin: 35px 20%;
+}
+
+.emp-head {
+    display: flex;
+    margin-bottom: 40px;
+}
+.emp-image {
+    background: url("./images/employee.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 2px solid gray;
+    padding: 10px;
+}
+.emp-header {
+    flex: 7 1;
+    font-size: 40px;
+    font-weight: 700;
+    margin-left: 50px;
+    line-height: 100px;
+}
+.emp-img {
+    flex: 3;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+.field {
+    color: cadetblue;
+    margin-right: 20px;
+}
+
+.field-details-section {
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.icon {
+    fill: cadetblue;
+    width: 17px;
+    height: 17px;
+    margin-right: 12px;
+}
+.link {
+    background: cadetblue;
+    color: white;
+    padding: 10px;
+    margin-right: 10%;
+}
+.nav-link {
+    margin-top: 7%
+}
+

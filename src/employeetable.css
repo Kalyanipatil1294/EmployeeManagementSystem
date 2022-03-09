@@ -1,0 +1,23 @@
+.button-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 40px;
+}
+.icon-button {
+    width: 200px;
+    margin: 10px 2px;
+}
+.action-item {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.icon-action {
+    border: 1px solid cadetblue;
+    padding: 5px;
+    fill: cadetblue;
+    border-radius: 5px;
+}
+.action-item-container {
+    /*display: flex;*/
+}

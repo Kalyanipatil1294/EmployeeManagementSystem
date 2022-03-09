@@ -1,0 +1,16 @@
+button {
+    background: cadetblue;
+    height: 30px;
+    padding: 5px 20px;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+.disabled-button {
+    color: lightgray;
+}
+
+.table-container {
+    margin-top: 20px;
+}
