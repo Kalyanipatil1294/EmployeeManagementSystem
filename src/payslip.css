@@ -9,3 +9,8 @@ select {
 .emp-management {
     margin: 10px 0;
 }
+.but-disabled {
+    background: lightgray;
+    cursor: not-allowed;
+    color: #333;
+}

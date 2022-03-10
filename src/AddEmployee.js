@@ -1,8 +1,7 @@
 import imag from "./loginIcon.png";
 import "./employee.css"
-import {useEffect} from "react";
 import HeaderComp from "./HeaderComp";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 const AddEmployee = () =>{
     const update =() => {
@@ -23,6 +22,7 @@ const AddEmployee = () =>{
                 body: JSON.stringify({id: userId, name: name, password: pwd, email: email, address: address, salaryPerHour: salary, type: "emp"})
             });
             const content = await rawResponse.json();
+            alert("Employee Added Successfully")
         })();
     }
 
@@ -40,7 +40,7 @@ const AddEmployee = () =>{
                 <label htmlFor="uname"><b>Employee Name</b></label>
                 <input id="uname" type="text" placeholder="Enter Username" name="uname" required />
 
-                <label htmlFor="uname"><b>Set Default</b></label>
+                <label htmlFor="uname"><b>Set Default Password</b></label>
                 <input id="pwd" type="text" placeholder="Set Default password" name="uname" required />
 
                 <label htmlFor="email"><b>Email</b></label>
@@ -52,7 +52,7 @@ const AddEmployee = () =>{
                 <label htmlFor="salary"><b>Salary per hour</b></label>
                 <input type="text" placeholder="Enter salary" id="salary" required />
 
-                <div className="buttonContainer"><Link to="/admin"><button type="submit" onClick={update}>Add Employee</button></Link></div>
+                <div className="buttonContainer"><button type="submit" onClick={update}>Add Employee</button></div>
             </div>
         </div>
             </>

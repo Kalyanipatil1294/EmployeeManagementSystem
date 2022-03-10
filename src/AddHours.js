@@ -15,20 +15,19 @@ const AddHours = () => {
         return date > today;
     }
 
-    function formatDate(date, isPrev) {
+    function formatDate(date) {
         let d = new Date(date),
             month = '' + (d.getMonth() + 1),
-            day = '' + (d.getDate()+ isPrev ? 1: 0),
+            day = '' + (d.getDate()),
             year = d.getFullYear();
 
-        let dayFinal = isPrev ? (d.getDate()-1) + "" : day;
 
         if (month.length < 2)
             month = '0' + month;
-        if (dayFinal.length < 2)
-            dayFinal = '0' + dayFinal;
+        if (day.length < 2)
+            day = '0' + day;
 
-        return [year, month, dayFinal].join('-');
+        return [year, month, day].join('-');
     }
 
     const onSubmit = () => {
@@ -54,6 +53,7 @@ const AddHours = () => {
                 body: JSON.stringify(obj)
             });
             const content = await rawResponse.json();
+            alert("Hours Added Successfully")
         })();
     }
 
@@ -98,7 +98,9 @@ const AddHours = () => {
                                id: id,
                                date: currDate.toUTCString(),
                                hrs: h.hours,
-                               disabled: isInTheFuture(currDate) || h.approved === "YES"
+                               disabled: h.approved === "YES",
+                               isFuture: isInTheFuture(currDate),
+                               orgDate: currDate
                            })
                        id++;
                    }
@@ -110,7 +112,9 @@ const AddHours = () => {
                            id: id,
                            date: currDate.toUTCString(),
                            hrs: 0,
-                           disabled: isInTheFuture(currDate)
+                           disabled: false,
+                           isFuture: isInTheFuture(currDate),
+                           orgDate: currDate
                        })
                    id++;
                }
@@ -140,7 +144,9 @@ const AddHours = () => {
 
     const displayLastTenWorkingDays  = () => {
         return workingDays.map((wd, index) => {
+            const text = wd.disabled ? "Approved" : "You cannot add future hours !!";
             const className = wd.disabled ? "disabled" : "";
+            const but_className = wd.disabled  ||  wd.isFuture? "but-disabled" : "";
             return  ( <tr key={index} className={className}>
                 <td>{wd.date}</td>
                 <td>
@@ -152,10 +158,11 @@ const AddHours = () => {
                         <>{wd.hrs}</>
                     }
                 </td>
+                <td className="info"> {wd.disabled || wd.isFuture ? <>{text}</>: null}</td>
                 <td>
                     {editHourId === wd.id ?
                         <button onClick={() => {doneAdding(wd.id)}}>Done</button> :
-                        <button disabled={wd.disabled} onClick={() => {setEditDate(wd.id)}}>Edit Hours</button>
+                        <button disabled={wd.disabled || wd.isFuture} onClick={() => {setEditDate(wd.id)}} className={but_className}>Edit Hours</button>
                     }
                 </td>
             </tr>)
@@ -169,6 +176,7 @@ const AddHours = () => {
             <tr>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Status</th>
                 <th>Edit Hours</th>
             </tr>
             {displayLastTenWorkingDays()}

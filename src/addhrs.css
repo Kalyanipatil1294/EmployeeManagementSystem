@@ -14,3 +14,7 @@ button {
 .table-container {
     margin-top: 20px;
 }
+.info {
+    color: cadetblue;
+    font-weight: bold;
+}
